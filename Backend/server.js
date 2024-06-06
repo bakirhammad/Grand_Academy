@@ -13,6 +13,9 @@ app.use("/role", roleRouter);
 const userRouter = require("./routes/user");
 app.use("/user", userRouter);
 
+const courseRouter = require("./routes/course");
+app.use("/course", courseRouter);
+
 // For any "Unassigned endpionts"
 app.use("*", (req, res) => res.status(404).json("NO content at this path"));
 

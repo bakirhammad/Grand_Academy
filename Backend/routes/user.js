@@ -5,7 +5,10 @@ const userRouter = express.Router();
 
 const { register, login } = require("../controllers/user");
 
+// To Create new user
 userRouter.post("/register", register);
+
+// To Login
 userRouter.post("/login", login);
 
 module.exports = userRouter;

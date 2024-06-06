@@ -3,7 +3,7 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const SECRET = "Grand";
 
-// To create new user >>
+// To create new User >>
 const register = (req, res) => {
   const { firstName, lastName, email, password, role } = req.body;
   const newUser = new usersModel({
