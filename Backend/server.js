@@ -6,6 +6,11 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// Routes:
+const roleRouter = require("./routes/role");
+app.use("/role", roleRouter);
+
+
 
 
 
