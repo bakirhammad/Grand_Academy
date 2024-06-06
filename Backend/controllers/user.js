@@ -1,4 +1,4 @@
-const usersModel = require("../models/user");
+const userModel = require("../models/user");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const SECRET = "Grand";
@@ -6,7 +6,7 @@ const SECRET = "Grand";
 // To create new User >>
 const register = (req, res) => {
   const { firstName, lastName, email, password, role } = req.body;
-  const newUser = new usersModel({
+  const newUser = new userModel({
     firstName,
     lastName,
     email,
@@ -41,7 +41,7 @@ const register = (req, res) => {
 const login = (req, res) => {
   const email = req.body.email.toLowerCase();
   const password = req.body.password;
-  usersModel
+  userModel
     .findOne({ email })
     .then(async (result) => {
       if (!result) {

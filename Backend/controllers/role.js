@@ -1,8 +1,8 @@
-const rolesModel = require("../models/role");
+const roleModel = require("../models/role");
 
 const createRole = (req, res) => {
   const { role, permissions } = req.body;
-  const newRole = new rolesModel({
+  const newRole = new roleModel({
     role,
     permissions,
   });
@@ -24,4 +24,4 @@ const createRole = (req, res) => {
     });
 };
 
-module.exports =  createRole ;
+module.exports = createRole;

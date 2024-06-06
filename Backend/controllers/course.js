@@ -1,13 +1,12 @@
 const courseModel = require("../models/course");
-const usersModel = require("../models/user");
 
 // To create new Course
 const createCourse = (req, res) => {
   const { courseTitle, courseBody, courseImage, courseDuration } = req.body;
-  const Teacher = req.token.userId;
+  const teacher = req.token.userId;
 
   const newCourse = new courseModel({
-    Teacher,
+    teacher,
     courseTitle,
     courseBody,
     courseImage,
@@ -32,8 +31,6 @@ const createCourse = (req, res) => {
     });
 };
 
-
 module.exports = {
-    createCourse,
-  };
-  
+  createCourse,
+};
