@@ -1,0 +1,67 @@
+.homeMain {
+  display: flex;
+  flex-direction: column;
+}
+
+/* =========================================== */
+.headBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: rgb(2, 90, 206);
+  color: white;
+  padding-left: 2%;
+  padding-right: 2%;
+}
+
+/* ======================================= */
+.headTitle {
+  height: 50vh;
+  width: 100vw;
+  background-image: url("../../assest/wallpaper.jpg");
+}
+
+.headBg {
+  background-color: rgba(0, 0, 0, 0.767);
+  height: 50vh;
+  width: 100vw;
+}
+
+.headContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  color: white;
+  font-size: 55px;
+  font-weight: 800;
+  margin-bottom: 0;
+  margin-top: 30px;
+}
+.subtitle {
+  color: #ffffff;
+  font-size: large;
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+
+.ceateButton {
+  background-color: rgb(255, 255, 255);
+  border: none;
+  border-radius: 8px;
+  height: 50px;
+  width: 260px;
+  cursor: pointer;
+  box-shadow: 1px 1px 5px rgb(223, 223, 223);
+  color: black;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+/*  ============================================== */
+.theSingleCourse{
+    cursor: pointer;
+}

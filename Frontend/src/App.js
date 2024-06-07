@@ -4,16 +4,17 @@ import Home from "./components/Home/Home";
 import Register from "./components/Register/Register";
 import { createContext, useState } from "react";
 import NotFound from "./components/NotFound/NotFound";
+import PreviewCourse from "./components/PreviewCourse/PreviewCourse";
 export const userContext = createContext();
 
 function App() {
   const [token, setToken] = useState(localStorage.getItem("token") || "");
-  const [UserInfo, setUserInfo] = useState(
+  const [userInfo, setUserInfo] = useState(
     JSON.parse(localStorage.getItem("UI")) || {}
   );
 
   return (
-    <userContext.Provider value={{ token, setToken, UserInfo, setUserInfo }}>
+    <userContext.Provider value={{ token, setToken, userInfo, setUserInfo }}>
       <div>
         <Routes>
           <Route path="/login" element={<Login />} />
@@ -22,6 +23,7 @@ function App() {
           <Route path="/register" element={<Register />} />
 
           {token && <Route path="/home" element={<Home />} />}
+          {token && <Route path="/course/:id" element={<PreviewCourse />} />}
 
           {/* This Route for any unassigned path */}
           <Route path="*" element={<NotFound />} />

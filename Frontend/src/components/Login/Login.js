@@ -71,7 +71,6 @@ const Login = () => {
                 password,
               })
               .then((result) => {
-                console.log(result.data);
                 localStorage.setItem("token", result.data.token);
                 localStorage.setItem(
                   "UI",
