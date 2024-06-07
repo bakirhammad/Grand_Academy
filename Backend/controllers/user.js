@@ -5,13 +5,14 @@ const SECRET = "Grand";
 
 // To create new User >>
 const register = (req, res) => {
-  const { firstName, lastName, email, password, role } = req.body;
+  const { firstName, lastName, email, password, role, specialty } = req.body;
   const newUser = new userModel({
     firstName,
     lastName,
     email,
     password,
     role,
+    specialty,
   });
   newUser
     .save()
