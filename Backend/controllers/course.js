@@ -42,6 +42,7 @@ const getAllCourses = (req, res) => {
         return res.status(404).json({
           success: false,
           message: "No Courses Available",
+          result: result,
         });
       }
       res.status(200).json({
