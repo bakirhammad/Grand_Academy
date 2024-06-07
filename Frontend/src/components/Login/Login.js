@@ -1,26 +1,35 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import "./Login.css";
 import { userContext } from "../../App";
 
 const Login = () => {
   const { token, setToken, setUserInfo } = useContext(userContext);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
   return (
-    <div>
+    <div className="loginPage">
       <h2>Grand Academy</h2>
-      <h3>Login</h3>
+      <h2>Login</h2>
+
       <div className="loginForm">
         <div className="loginEmail">
           <label>Email</label>
+          <br />
           <input type="email" placeholder="your email" />
         </div>
+        <br />
 
         <div className="loginPassword">
           <label>Password</label>
+          <br />
           <input type="password" placeholder="your password" />
         </div>
+        <br />
 
-        <button>Login</button>
-        <button>Register Here</button>
+        <button className="loginButton">Login</button>
+        <p>Don't have Account?</p>
+        <button className="registerButton">Register Here</button>
       </div>
     </div>
   );

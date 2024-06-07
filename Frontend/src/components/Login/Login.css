@@ -1,0 +1,46 @@
+.loginPage {
+  height: 100vh;
+  background-color: rgb(248, 245, 241);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.loginForm {
+  background-color: white;
+  /* height: 45%; */
+  width: 30%;
+  padding: 2%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 3%;
+  box-shadow: 1px 1px 5px gray;
+}
+
+input {
+  width: 95%;
+  border-radius: 5px;
+  padding: 2%;
+}
+
+.loginButton {
+  height: 35px;
+  border: none;
+  box-shadow: 1px 1px 5px black;
+  background-color: rgb(19, 78, 189);
+  color: white;
+  cursor: pointer;
+  border-radius: 7px;
+}
+
+.registerButton {
+  height: 33px;
+  border: none;
+  box-shadow: 1px 1px 5px gray;
+  background-color: rgb(0, 0, 0);
+  color: white;
+  cursor: pointer;
+  border-radius: 7px;
+}
