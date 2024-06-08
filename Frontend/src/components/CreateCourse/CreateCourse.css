@@ -12,3 +12,31 @@
   color: white;
   text-decoration-line: none;
 }
+
+/* ========================= */
+.mainCeateBody {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.createCourseBody {
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.createInputs {
+  width: 95%;
+  border-style: groove;
+}
+
+textarea {
+  padding: 2%;
+}
+.star {
+  font-weight: 800;
+}

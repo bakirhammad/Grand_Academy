@@ -6,7 +6,7 @@ const courseSchema = new mongoose.Schema({
   courseBody: { type: String, required: true },
   courseDate: { type: Date, default: Date.now() },
   courseImage: { type: String },
-  courseDuration: { type: Number },
+  courseDuration: { type: Number, required: true },
 });
 
 module.exports = mongoose.model("Course", courseSchema);
