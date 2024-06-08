@@ -40,3 +40,45 @@ textarea {
 .star {
   font-weight: 800;
 }
+
+.createButton {
+  background-color: black;
+  color: white;
+  border: none;
+  height: 40px;
+  box-shadow: 1px 1px 5px gray;
+  margin-bottom: 10px;
+  cursor: pointer;
+  border-radius: 7px;
+}
+
+.A {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  padding-top: 15%;
+  background-color: rgba(0, 0, 0, 0.705);
+}
+
+.B {
+  background-color: white;
+  position: relative;
+  width: max-content;
+  padding: 2%;
+  left: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.DoneButton {
+  cursor: pointer;
+  color: white;
+  background-color: black;
+  border: none;
+  border-radius: 5px;
+  width: 70px;
+  height: 30px;
+}
