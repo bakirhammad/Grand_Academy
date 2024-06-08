@@ -81,14 +81,21 @@ const Home = () => {
                     />
                     <div className="coursBody">
                       <h3>{course.courseTitle}</h3>
-                      <p>{course.courseDate}</p>
-                      <p>{course.courseDuration} Months</p>
+                      <p>
+                        {course.courseDate
+                          .split("T")
+                          .shift()
+                          .split("-")
+                          .reverse()
+                          .join(".")}
+                      </p>
+                      <p>{course.courseDuration} hrs</p>
                       <h4>
                         {userInfo.userId === course.teacher._id ? (
                           <p>Your course</p>
                         ) : (
                           <p>
-                            {course.teacher.firstName} {course.teacher.lastName}
+                          By: {course.teacher.firstName} {course.teacher.lastName}
                           </p>
                         )}
                       </h4>
@@ -99,7 +106,7 @@ const Home = () => {
             })}{" "}
           </>
         ) : userInfo.userRole === "T" ? (
-          <div>Please share your course for stundents</div>
+          <div>Please create your course for stundents</div>
         ) : (
           <div>
             No courses available, please wait until teachers publish them

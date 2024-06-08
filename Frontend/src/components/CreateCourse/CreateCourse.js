@@ -94,9 +94,11 @@ const CreateCourse = () => {
             />
           </div>
           <br />
+          {/* Error messages in faild Login */}
           {isEmpty && (
             <div style={{ color: "red" }}>Please fill all * fields</div>
           )}
+          {/* ===== Send the req to Server ======*/}
           <button
             className="createButton"
             onClick={() => {

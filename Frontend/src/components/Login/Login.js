@@ -55,6 +55,7 @@ const Login = () => {
         {errResp && <div style={{ color: "red" }}>{errResp}</div>}
         {isEmpty && <div style={{ color: "red" }}>Please fill all fields</div>}
 
+        {/* ===== Send the req to Server ======*/}
         <button
           className="loginButton"
           onClick={() => {
@@ -95,7 +96,7 @@ const Login = () => {
         <p>Don't have Account?</p>
         <button className="registerButton">Register Here</button>
       </div>
-
+      {/* ============================================= */}
       {loader && <Loader />}
     </div>
   );

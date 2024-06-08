@@ -17,14 +17,14 @@
 /* ======================================= */
 .headTitle {
   height: 50vh;
-  width: 100vw;
+  width: 100%;
   background-image: url("../../assest/wallpaper.jpg");
 }
 
 .headBg {
-  background-color: rgba(0, 0, 0, 0.767);
+  background-color: rgba(0, 0, 0, 0.795);
   height: 50vh;
-  width: 100vw;
+  width: 100%;
 }
 
 .headContent {
@@ -62,6 +62,138 @@
 }
 
 /*  ============================================== */
-.theSingleCourse{
+.homeBody {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 30px;
+  padding: 2%;
+}
+
+.theSingleCourse {
+  background-color: rgb(248, 219, 219);
+  cursor: pointer;
+  width: 100%;
+  padding: 2%;
+  margin-top: 2px;
+  color: rgb(10, 10, 10);
+  box-shadow: 1px 1px 5px;
+}
+
+img {
+  height: 60%;
+  width: 100%;
+  box-shadow: 1px 1px 5px;
+}
+
+/* ===================================================================== */
+@media (min-width: 320px) and (max-width: 450px) {
+  .title {
+    color: white;
+    font-size: 37px;
+    font-weight: 800;
+    margin-bottom: 0;
+    margin-top: 30px;
+  }
+  .subtitle {
+    color: #ffffff;
+    font-size: large;
+    font-weight: 700;
+    margin-bottom: 40px;
+  }
+
+  .ceateButton {
+    background-color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 8px;
+    height: 50px;
+    width: 220px;
     cursor: pointer;
+    box-shadow: 1px 1px 5px rgb(223, 223, 223);
+    color: black;
+    font-weight: 600;
+    font-size: 18px;
+  }
+  /* =======================================================  */
+  .homeBody {
+    width: 90%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 3%;
+  }
+}
+
+/* ============== */
+@media (min-width: 450px) and (max-width: 550px) {
+  .title {
+    color: white;
+    font-size: 44px;
+    font-weight: 800;
+    margin-bottom: 0;
+    margin-top: 30px;
+  }
+  .subtitle {
+    color: #ffffff;
+    font-size: large;
+    font-weight: 700;
+    margin-bottom: 40px;
+  }
+
+  .ceateButton {
+    background-color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 8px;
+    height: 50px;
+    width: 240px;
+    cursor: pointer;
+    box-shadow: 1px 1px 5px rgb(223, 223, 223);
+    color: black;
+    font-weight: 600;
+    font-size: 20px;
+  }
+  /* =======================================================  */
+  .homeBody {
+    width: 90%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 3%;
+  }
+}
+/* ============== */
+@media (min-width: 550px) and (max-width: 870px) {
+  .title {
+    color: white;
+    font-size: 50px;
+    font-weight: 800;
+    margin-bottom: 0;
+    margin-top: 30px;
+  }
+  .subtitle {
+    color: #ffffff;
+    font-size: large;
+    font-weight: 700;
+    margin-bottom: 40px;
+  }
+
+  .ceateButton {
+    background-color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 8px;
+    height: 50px;
+    width: 240px;
+    cursor: pointer;
+    box-shadow: 1px 1px 5px rgb(223, 223, 223);
+    color: black;
+    font-weight: 600;
+    font-size: 20px;
+  }
+  /* =======================================================  */
+  .homeBody {
+    width: 90%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    padding: 3%;
+  }
 }
