@@ -1,0 +1,14 @@
+.headCourseBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: rgb(2, 90, 206);
+  color: white;
+  padding-left: 2%;
+  padding-right: 2%;
+}
+
+.homeLink {
+  color: white;
+  text-decoration-line: none;
+}

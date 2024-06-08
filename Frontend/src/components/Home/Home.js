@@ -48,7 +48,14 @@ const Home = () => {
             <h2 className="title">Grand Academy</h2>
             <p className="subtitle">Your free courses</p>
             {userInfo.userRole === "T" && (
-              <button className="ceateButton">Create your course</button>
+              <button
+                className="ceateButton"
+                onClick={() => {
+                  navigate("/createCourse");
+                }}
+              >
+                Create your course
+              </button>
             )}
           </div>
         </div>
