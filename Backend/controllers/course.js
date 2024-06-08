@@ -31,6 +31,29 @@ const createCourse = (req, res) => {
     });
 };
 
+// To Get One Course By Id
+const getOneCouse = (req, res) => {
+  const { id } = req.params;
+
+  courseModel
+    .findOne({ _id: id })
+    .populate("teacher", "firstName lastName")
+    .then((result) => {
+      res.status(200).json({
+        success: true,
+        message: "Success",
+        result: result,
+      });
+    })
+    .catch((err) => {
+      res.status(500).json({
+        success: false,
+        message: "Server error",
+        err: err,
+      });
+    });
+};
+
 // To Get All Available Courses
 const getAllCourses = (req, res) => {
   courseModel
@@ -106,6 +129,7 @@ const deleteCouresById = (req, res) => {
 
 module.exports = {
   createCourse,
+  getOneCouse,
   getAllCourses,
   updateCourseById,
   deleteCouresById,

@@ -5,6 +5,7 @@ const courseRouter = express.Router();
 
 const {
   createCourse,
+  getOneCouse,
   getAllCourses,
   updateCourseById,
   deleteCouresById,
@@ -14,6 +15,9 @@ const authentication = require("../middleware/authentication");
 
 // To create new course
 courseRouter.post("/createCourse", authentication, createCourse);
+
+//To get one course
+courseRouter.get("/getOne/:id", authentication, getOneCouse);
 
 // To get all available courses
 courseRouter.get("/getAllCourse", authentication, getAllCourses);

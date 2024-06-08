@@ -25,7 +25,9 @@ function App() {
 
           {token && <Route path="/home" element={<Home />} />}
           {token && <Route path="/course/:id" element={<PreviewCourse />} />}
-          {token && userInfo.userRole === "T" && <Route path="createCourse" element={<CreateCourse />} />}
+          {token && userInfo.userRole === "T" && (
+            <Route path="createCourse" element={<CreateCourse />} />
+          )}
 
           {/* This Route for any unassigned path */}
           <Route path="*" element={<NotFound />} />

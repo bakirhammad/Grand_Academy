@@ -1,0 +1,80 @@
+.previewMainBody {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.previewSubBody {
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+  padding: 2%;
+}
+
+.topPreviewCourse {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.updateButton {
+  background-color: #025ace;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  height: 50px;
+  width: 150px;
+  cursor: pointer;
+  box-shadow: 1px 1px 5px black;
+}
+
+.deleteButton {
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  height: 50px;
+  width: 150px;
+  cursor: pointer;
+  box-shadow: 1px 1px 5px black;
+  align-self: flex-end;
+}
+
+.previewImage {
+  width: 100%;
+  height: 40%;
+}
+
+/* ======================== */
+
+.C {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  padding-top: 55%;
+  background-color: rgba(0, 0, 0, 0.705);
+}
+
+.D {
+  background-color: white;
+  position: relative;
+  width: max-content;
+  padding: 2%;
+  left: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.DoneButton {
+  cursor: pointer;
+  color: white;
+  background-color: black;
+  border: none;
+  border-radius: 5px;
+  width: 70px;
+  height: 30px;
+}
