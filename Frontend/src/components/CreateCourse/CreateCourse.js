@@ -13,10 +13,10 @@ const CreateCourse = () => {
   const [courseBody, setCourseBody] = useState("");
   const [courseImage, setCourseImage] = useState("");
   const [courseDuration, setCourseDuration] = useState("");
-  const [isEmpty, setIsEmpty] = useState(false);
-  const [loader, setloader] = useState(true);
-  const [showMessage, setshowMessage] = useState(false);
-  const [message, setMessage] = useState("");
+  const [isEmpty, setIsEmpty] = useState(false); // message if any reqiured field is Empty.
+  const [loader, setloader] = useState(true); // To Show and hide loader.
+  const [showMessage, setshowMessage] = useState(false); // To Show and hide loader.
+  const [message, setMessage] = useState(""); // message of success register.
 
   return (
     <div>

@@ -19,7 +19,7 @@ const Login = () => {
     <div className="loginPage">
       <h2>Grand Academy</h2>
       <h2>Login</h2>
-
+      {/* ====== Email input ====== */}
       <div className="loginForm">
         <div className="loginEmail">
           <label>Email</label>
@@ -36,6 +36,7 @@ const Login = () => {
         </div>
         <br />
 
+        {/* ====== Password input ====== */}
         <div className="loginPassword">
           <label>Password</label>
           <br />
@@ -65,7 +66,7 @@ const Login = () => {
               setLoader(false);
               return setIsEmpty(!isEmpty);
             }
-
+            // send login req ====>
             axios
               .post("http://localhost:5000/user/login", {
                 email,
@@ -94,7 +95,14 @@ const Login = () => {
         </button>
 
         <p>Don't have Account?</p>
-        <button className="registerButton">Register Here</button>
+        <button
+          className="registerButton"
+          onClick={() => {
+            navigate("/register");
+          }}
+        >
+          Register Here
+        </button>
       </div>
       {/* ============================================= */}
       {loader && <Loader />}
