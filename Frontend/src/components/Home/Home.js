@@ -28,7 +28,13 @@ const Home = () => {
     <div className="homeMian">
       {/* ===== Top bar of home page ===== */}
       <div className="headBar">
-        <h3>Welcome {userInfo.firstName}</h3>
+        <h3>
+          Welcome{" "}
+          {userInfo.firstName.replace(
+            userInfo.firstName[0],
+            userInfo.firstName[0].toUpperCase()
+          )}
+        </h3>
         <h4
           style={{ cursor: "pointer" }}
           onClick={() => {
@@ -75,37 +81,39 @@ const Home = () => {
                   }}
                 >
                   <div>
+                    {/* ----- image of course in Home ----- */}
                     <img
                       className="courseImage"
                       src={course.courseImage || defaultCourseImage}
                     />
+
                     <div className="coursBody">
-                      <h3>{course.courseTitle}</h3>
-                      <p>
-                        {course.courseDate
-                          .split("T")
-                          .shift()
-                          .split("-")
-                          .reverse()
-                          .join(".")}
-                      </p>
-                      <p>{course.courseDuration} hrs</p>
+                      {/* ----- title and duration of course ----- */}
+                      <div className="curserTitle">
+                        <h3>{course.courseTitle}</h3>
+                        <p>{course.courseDuration} hrs</p>
+                      </div>
+
+                      {/* ----- teacher of course ----- */}
                       <h4>
                         {userInfo.userId === course.teacher._id ? (
                           <p>Your course</p>
                         ) : (
                           <p>
-                          By: {course.teacher.firstName} {course.teacher.lastName}
+                            By: {course.teacher.firstName}{" "}
+                            {course.teacher.lastName}
                           </p>
                         )}
                       </h4>
+                      {/* --------------------------------- */}
                     </div>
                   </div>
                 </div>
               );
             })}{" "}
           </>
-        ) : userInfo.userRole === "T" ? (
+        ) : // If No courses available yet
+        userInfo.userRole === "T" ? (
           <div>Please create your course for stundents</div>
         ) : (
           <div>

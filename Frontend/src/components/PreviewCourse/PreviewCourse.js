@@ -33,7 +33,13 @@ const PreviewCourse = () => {
     <div>
       {/* ===== Top bar of PreviewCourse page ===== */}
       <div className="headCourseBar">
-        <h3>Welcome {userInfo.firstName}</h3>
+        <h3>
+          Welcome{" "}
+          {userInfo.firstName.replace(
+            userInfo.firstName[0],
+            userInfo.firstName[0].toUpperCase()
+          )}
+        </h3>
         <h4>
           <Link className="homeLink" to="/home">
             Home
@@ -42,70 +48,107 @@ const PreviewCourse = () => {
       </div>
 
       {/* ===== Body part ===== */}
-      <div className="previewMainBody">
-        <div className="previewSubBody">
-          <img
-            className="previewImage"
-            src={course.courseImage || defaultCourseImage}
-          />
-          <div className="topPreviewCourse">
-            {course && (
-              <h4>
-                By {course.teacher.firstName} {course.teacher.lastName}
-              </h4>
-            )}
-            {course &&
-              userInfo.userRole === "T" &&
+      {course ? (
+        // Check untile data reach from server
+        <div className="previewMainBody">
+          <div className="previewSubBody">
+            {/* -------- image of course ------ */}
+            <img
+              className="previewImage"
+              src={course.courseImage || defaultCourseImage}
+            />
+
+            {/* -------- Teacher Name ------ */}
+            <div className="topPreviewCourse">
+              {course.teacher._id === userInfo.userId ? (
+                <h4>My Course</h4>
+              ) : (
+                <h4>
+                  By {course.teacher.firstName} {course.teacher.lastName}
+                </h4>
+              )}
+
+              {/* -------- Update button if same teacher ------ */}
+              {userInfo.userRole === "T" &&
+                course.teacher._id === userInfo.userId && (
+                  <button className="updateButton">Update Course</button>
+                )}
+
+              {/* ---- time of published course, will shown here when update button is hiddin --- */}
+              {(userInfo.userRole === "T" || "S") &&
+                course.teacher._id !== userInfo.userId && (
+                  <p>
+                    {" "}
+                    {course.courseDate
+                      .split("T")
+                      .shift()
+                      .split("-")
+                      .reverse()
+                      .join(".")}
+                  </p>
+                )}
+            </div>
+
+            {/* --- time of published course, will shown here when update button is Shown --- */}
+            {userInfo.userRole === "T" &&
               course.teacher._id === userInfo.userId && (
-                <button className="updateButton">Update Course</button>
+                <p>
+                  {" "}
+                  {course.courseDate
+                    .split("T")
+                    .shift()
+                    .split("-")
+                    .reverse()
+                    .join(".")}
+                </p>
+              )}
+
+            {/* ----- course title and duration --------- */}
+            <div className="topPreviewCourse">
+              <h2>{course.courseTitle}</h2>
+              <h4>{course.courseDuration} hrs</h4>
+            </div>
+            {/* ----- course description -------- */}
+            <div className="courseBody">{course.courseBody}</div>
+
+            {/* -------- Delete button if Same teacher ------ */}
+            {userInfo.userRole === "T" &&
+              course.teacher._id === userInfo.userId && (
+                <button
+                  className="deleteButton"
+                  onClick={() => {
+                    setshowMessage(true);
+                    //  Send the Delete req to Server
+                    axios
+                      .delete(
+                        `http://localhost:5000/course/deleteCourse/${id}`,
+                        {
+                          headers: { Authorization: `Bearer ${token}` },
+                        }
+                      )
+                      .then((result) => {
+                        setMessage(result.data.message);
+                        setloader(false);
+                      })
+                      .catch((err) => {
+                        setMessage(err.response.data.message);
+                        setloader(false);
+                      });
+                  }}
+                >
+                  Delete Course
+                </button>
               )}
           </div>
-
-          {course && (
-            <p>
-              {course.courseDate
-                .split("T")
-                .shift()
-                .split("-")
-                .reverse()
-                .join(".")}
-            </p>
-          )}
-          <div className="topPreviewCourse">
-            {course && <h2>{course.courseTitle}</h2>}
-            {course && <h4>{course.courseDuration} hrs</h4>}
-          </div>
-
-          {course && <p>{course.courseBody}</p>}
-          {course &&
-            userInfo.userRole === "T" &&
-            course.teacher._id === userInfo.userId && (
-              /* ===== Send the Delete req to Server ======*/
-              <button
-                className="deleteButton"
-                onClick={() => {
-                  setshowMessage(true);
-                  axios
-                    .delete(`http://localhost:5000/course/deleteCourse/${id}`, {
-                      headers: { Authorization: `Bearer ${token}` },
-                    })
-                    .then((result) => {
-                      setMessage(result.data.message);
-                      setloader(false);
-                    })
-                    .catch((err) => {
-                      setMessage(err.response.data.message);
-                      setloader(false);
-                    });
-                }}
-              >
-                Delete Course
-              </button>
-            )}
         </div>
-      </div>
+      ) : (
+        <div className="waitingPage">
+          {" "}
+          <Loader />{" "}
+        </div>
+      )}
 
-      {/* ===== Show Message and Loader part ===== */}
+      {/* ===== Show Message and Loader when click on Delete button ===== */}
       {showMessage && (
         <div className="C">
           <div className="D">

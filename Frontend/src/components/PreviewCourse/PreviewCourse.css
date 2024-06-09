@@ -10,6 +10,11 @@
   display: flex;
   flex-direction: column;
   padding: 2%;
+  background-color: white;
+  border: groove;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  border-radius: 7px;
 }
 
 .topPreviewCourse {
@@ -39,11 +44,18 @@
   cursor: pointer;
   box-shadow: 1px 1px 5px black;
   align-self: flex-end;
+  margin-top: 3%;
 }
 
 .previewImage {
   width: 100%;
   height: 40%;
+}
+
+.courseBody {
+  height: max-content;
+  width: 100%;
+  overflow-wrap: break-word;
 }
 
 /* ======================== */
@@ -77,4 +89,15 @@
   border-radius: 5px;
   width: 70px;
   height: 30px;
+}
+
+.waitingPage {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding-top: 20%;
+  padding-left: 45%;
+  background-color: rgba(0, 0, 0, 0.705);
 }

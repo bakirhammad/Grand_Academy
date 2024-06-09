@@ -20,6 +20,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-bottom: 3%;
 }
 
 .createCourseBody {
@@ -51,7 +52,7 @@ textarea {
   cursor: pointer;
   border-radius: 7px;
 }
-
+/* ================================================== */
 .A {
   position: absolute;
   top: 0;

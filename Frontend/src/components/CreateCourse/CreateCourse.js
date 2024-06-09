@@ -22,7 +22,13 @@ const CreateCourse = () => {
     <div>
       {/* ===== Top bar of CreateCourse page ===== */}
       <div className="headCourseBar">
-        <h3>Welcome {userInfo.firstName}</h3>
+        <h3>
+          Welcome{" "}
+          {userInfo.firstName.replace(
+            userInfo.firstName[0],
+            userInfo.firstName[0].toUpperCase()
+          )}
+        </h3>
         <h4>
           <Link className="homeLink" to="/home">
             Home
@@ -33,6 +39,7 @@ const CreateCourse = () => {
       {/* ===== Body part of createCourse page ===== */}
       <div className="mainCeateBody">
         <div className="createCourseBody">
+          {/* ----- Title of course ------ */}
           <div className="courseTitle">
             <label>
               The Course Title: <span className="star">*</span>
@@ -48,6 +55,7 @@ const CreateCourse = () => {
             />
           </div>{" "}
           <br />
+          {/* ----- Duration of course ------ */}
           <div className="courseDuration">
             <label>
               Course Duration: <span className="star">*</span>
@@ -64,6 +72,7 @@ const CreateCourse = () => {
             />
           </div>
           <br />
+          {/* ----- Description of course ------ */}
           <div className="courseBody">
             <label>
               Course Description: <span className="star">*</span>
@@ -71,7 +80,7 @@ const CreateCourse = () => {
             <br />
             <textarea
               className="createInputs"
-              rows={8}
+              rows={12}
               placeholder="Course description"
               onChange={(e) => {
                 setIsEmpty(false);
@@ -80,10 +89,9 @@ const CreateCourse = () => {
             />
           </div>
           <br />
+          {/* ----- URL image of course ------ */}
           <div className="courseImage">
-            <label>
-              Course Image URL: <span>(optional)</span>
-            </label>
+            <label>Course Image URL:</label>
             <br />
             <input
               className="createInputs"
@@ -94,11 +102,11 @@ const CreateCourse = () => {
             />
           </div>
           <br />
-          {/* Error messages in faild Login */}
+          {/* ---- Error messages in faild Login -----*/}
           {isEmpty && (
             <div style={{ color: "red" }}>Please fill all * fields</div>
           )}
-          {/* ===== Send the req to Server ======*/}
+          {/* ----- Button of create course ------ */}
           <button
             className="createButton"
             onClick={() => {
@@ -110,7 +118,7 @@ const CreateCourse = () => {
                 return setIsEmpty(!isEmpty);
               }
               setshowMessage(true);
-              axios
+              axios // send req to create new course
                 .post(
                   "http://localhost:5000/course/createCourse",
                   {
@@ -140,7 +148,7 @@ const CreateCourse = () => {
         </div>
       </div>
 
-      {/* ===== Show Message and Loader part ===== */}
+      {/* ===== Show Message and Loader after get response from server ===== */}
       {showMessage && (
         <div className="A">
           <div className="B">

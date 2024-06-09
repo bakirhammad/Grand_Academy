@@ -65,22 +65,33 @@
 .homeBody {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 30px;
-  padding: 2%;
+  gap: 40px;
+  padding: 3%;
 }
 
 .theSingleCourse {
-  background-color: rgb(248, 219, 219);
+  background-color: white;
   cursor: pointer;
   width: 100%;
-  padding: 2%;
+  padding: 3%;
   margin-top: 2px;
   color: rgb(10, 10, 10);
-  box-shadow: 1px 1px 5px;
+  box-shadow: 2px 2px 5px gray;
+  border-radius: 7px;
+}
+
+.coursBody {
+  display: flex;
+  flex-direction: column;
+}
+
+.curserTitle {
+  display: flex;
+  justify-content: space-between;
 }
 
 img {
-  height: 60%;
+  height: 250px;
   width: 100%;
   box-shadow: 1px 1px 5px;
 }
