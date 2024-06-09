@@ -113,10 +113,13 @@ const Home = () => {
           </>
         ) : // If No courses available yet
         userInfo.userRole === "T" ? (
-          <div>Please create your course for stundents</div>
+          <div className="teacherNote">
+            {" "}
+            <h4>Please Create Your First Course For Students.</h4>
+          </div>
         ) : (
-          <div>
-            No courses available, please wait until teachers publish them
+          <div className="StudentNote">
+            <h4>No courses available, please wait until teachers publish.</h4>
           </div>
         )}
       </div>
