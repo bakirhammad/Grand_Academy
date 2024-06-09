@@ -12,9 +12,10 @@ const PreviewCourse = () => {
   const { userInfo, token } = useContext(userContext);
   const [course, setCourse] = useState("");
 
-  const [loader, setloader] = useState(true);
-  const [showMessage, setshowMessage] = useState(false);
-  const [message, setMessage] = useState("");
+  const [loader, setloader] = useState(true); // To Show and hide loader.
+  const [showMessage, setshowMessage] = useState(false); // To Show and hide loader.
+  const [message, setMessage] = useState(""); // message of success Delete or Update.
+  const [updateWindow, setUpdateWindow] = useState(false); // To Show and hide update window.
 
   useEffect(() => {
     axios
@@ -71,7 +72,14 @@ const PreviewCourse = () => {
               {/* -------- Update button if same teacher ------ */}
               {userInfo.userRole === "T" &&
                 course.teacher._id === userInfo.userId && (
-                  <button className="updateButton">Update Course</button>
+                  <button
+                    className="updateButton"
+                    onClick={() => {
+                      setUpdateWindow(true);
+                    }}
+                  >
+                    Update Course
+                  </button>
                 )}
 
               {/* ---- time of published course, will shown here when update button is hiddin --- */}
@@ -145,6 +153,23 @@ const PreviewCourse = () => {
         <div className="waitingPage">
           {" "}
           <Loader />{" "}
+        </div>
+      )}
+
+      {/* ===== Show Window of Update button click  ===== */}
+      {updateWindow && (
+        <div>
+          <div>
+            <textarea defaultValue={course.courseBody} />
+            <button>Update Now</button>
+            <button
+              onClick={() => {
+                setUpdateWindow(false);
+              }}
+            >
+              close
+            </button>
+          </div>
         </div>
       )}
 
