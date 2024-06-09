@@ -165,10 +165,12 @@ const PreviewCourse = () => {
 
       {/* ===== Show Update Window when update button clicked  ===== */}
       {updateWindow && (
-        <div>
-          <div>
+        <div className="mainUpdateWindow">
+          <div className="subUpdateWindow">
+            <h4>Correct any part:</h4>
             {/* -- update title -- */}
             <input
+              className="updateInput"
               defaultValue={course.courseTitle}
               onChange={(e) => {
                 setUpdateTitle(e.target.value);
@@ -177,6 +179,7 @@ const PreviewCourse = () => {
 
             {/* -- update duration -- */}
             <input
+              className="updateInput"
               type="number"
               defaultValue={course.courseDuration}
               onChange={(e) => {
@@ -186,14 +189,16 @@ const PreviewCourse = () => {
 
             {/* -- update description -- */}
             <textarea
+              rows={10}
+              className="updateInput"
               defaultValue={course.courseBody}
               onChange={(e) => {
                 setUpdateDescription(e.target.value);
               }}
             />
-
             {/* -- Update Now button -- */}
             <button
+              className="updateNowButton"
               onClick={() => {
                 axios // Send update req to server.
                   .put(
@@ -221,6 +226,7 @@ const PreviewCourse = () => {
 
             {/* -- Cancel button -- */}
             <button
+              className="cancelButton"
               onClick={() => {
                 setUpdateWindow(false);
               }}

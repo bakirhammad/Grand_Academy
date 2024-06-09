@@ -60,12 +60,11 @@ const Login = () => {
         <button
           className="loginButton"
           onClick={() => {
-            setLoader(true);
-
             if (email === "" || password === "") {
-              setLoader(false);
               return setIsEmpty(!isEmpty);
             }
+
+            setLoader(true);
             // send login req ====>
             axios
               .post("http://localhost:5000/user/login", {
@@ -105,7 +104,11 @@ const Login = () => {
         </button>
       </div>
       {/* ============================================= */}
-      {loader && <Loader />}
+      {loader && (
+        <div className="loaderWindow">
+          <Loader />
+        </div>
+      )}
     </div>
   );
 };
