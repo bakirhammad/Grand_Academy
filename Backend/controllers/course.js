@@ -86,10 +86,14 @@ const getAllCourses = (req, res) => {
 // To Update Course
 const updateCourseById = (req, res) => {
   const { id } = req.params;
-  const { courseBody } = req.body;
+  const { courseTitle, courseDuration, courseBody } = req.body;
 
   courseModel
-    .findOneAndUpdate({ _id: id }, { courseBody }, { new: true })
+    .findOneAndUpdate(
+      { _id: id },
+      { courseTitle, courseDuration, courseBody },
+      { new: true }
+    )
     .then((result) => {
       res.status(201).json({
         success: true,

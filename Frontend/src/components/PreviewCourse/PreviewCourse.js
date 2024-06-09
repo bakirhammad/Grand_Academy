@@ -4,18 +4,25 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { userContext } from "../../App";
 import Loader from "../Extra/Loader";
+import Login from "../Login/Login";
 const defaultCourseImage = require("../../assest/defaultCourseImage.jpg");
 
 const PreviewCourse = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+
   const { userInfo, token } = useContext(userContext);
   const [course, setCourse] = useState("");
+  const [changeDepend, setChangeDepend] = useState(1); // Dependency of userEffect.
 
   const [loader, setloader] = useState(true); // To Show and hide loader.
   const [showMessage, setshowMessage] = useState(false); // To Show and hide loader.
   const [message, setMessage] = useState(""); // message of success Delete or Update.
+
   const [updateWindow, setUpdateWindow] = useState(false); // To Show and hide update window.
+  const [updateDescription, setUpdateDescription] = useState(""); // Tu update the description of course.
+  const [updateTitle, setUpdateTitle] = useState(""); // Tu update the title of course.
+  const [updateDuration, setUpdateDuration] = useState(""); // Tu update the duration of course.
 
   useEffect(() => {
     axios
@@ -28,7 +35,7 @@ const PreviewCourse = () => {
       .catch((err) => {
         console.log(err.response.data.message);
       });
-  }, []);
+  }, [changeDepend]);
 
   return (
     <div>
@@ -156,18 +163,69 @@ const PreviewCourse = () => {
         </div>
       )}
 
-      {/* ===== Show Window of Update button click  ===== */}
+      {/* ===== Show Update Window when update button clicked  ===== */}
       {updateWindow && (
         <div>
           <div>
-            <textarea defaultValue={course.courseBody} />
-            <button>Update Now</button>
+            {/* -- update title -- */}
+            <input
+              defaultValue={course.courseTitle}
+              onChange={(e) => {
+                setUpdateTitle(e.target.value);
+              }}
+            />
+
+            {/* -- update duration -- */}
+            <input
+              type="number"
+              defaultValue={course.courseDuration}
+              onChange={(e) => {
+                setUpdateDuration(e.target.value);
+              }}
+            />
+
+            {/* -- update description -- */}
+            <textarea
+              defaultValue={course.courseBody}
+              onChange={(e) => {
+                setUpdateDescription(e.target.value);
+              }}
+            />
+
+            {/* -- Update Now button -- */}
+            <button
+              onClick={() => {
+                axios // Send update req to server.
+                  .put(
+                    `http://localhost:5000/course/updateCourse/${id}`,
+                    {
+                      courseTitle: updateTitle || course.courseTitle,
+                      courseDuration: updateDuration || course.courseDuration,
+                      courseBody: updateDescription || course.courseBody,
+                    },
+                    {
+                      headers: { Authorization: `Bearer ${token}` },
+                    }
+                  )
+                  .then((result) => {
+                    setUpdateWindow(false);
+                    setChangeDepend(changeDepend + 1);
+                  })
+                  .catch((err) => {
+                    console.log(err.response.data.message);
+                  });
+              }}
+            >
+              Update Now
+            </button>
+
+            {/* -- Cancel button -- */}
             <button
               onClick={() => {
                 setUpdateWindow(false);
               }}
             >
-              close
+              Cancel
             </button>
           </div>
         </div>

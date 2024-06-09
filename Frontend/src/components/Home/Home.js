@@ -9,7 +9,6 @@ const Home = () => {
   const { token, setToken, userInfo } = useContext(userContext);
   const [courses, setCourses] = useState([]);
   const navigate = useNavigate();
-  console.log(courses);
 
   useEffect(() => {
     axios
